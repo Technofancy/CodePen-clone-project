@@ -6,12 +6,21 @@ import Footer from "../component/Footer";
 import { RiMenuUnfoldLine, RiMenuUnfold2Line } from "react-icons/ri";
 import { FaSearch } from "react-icons/fa";
 // Dependencies
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Signup = () => {
 
     const [sideMenu, setSideMenu] = useState(false);
+
+    useEffect(() => {
+
+        axios
+        .get('http://locolhost:8000/users')
+        .then()
+        .catch()
+    }, [])
 
     return (
         <div>
