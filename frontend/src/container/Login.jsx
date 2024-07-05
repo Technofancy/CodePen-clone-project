@@ -1,6 +1,6 @@
 // Frontend files
 import logo from "../assets/images/codepen_logo.png"
-import SignupContent from "../component/SignupContent"
+import LoginContent from "../component/LoginContent"
 import Footer from "../component/Footer";
 // React icons
 import { RiMenuUnfoldLine, RiMenuUnfold2Line } from "react-icons/ri";
@@ -17,9 +17,9 @@ const Signup = () => {
     useEffect(() => {
 
         axios
-        .get('http://locolhost:8000/users')
-        .then()
-        .catch()
+            .get('http://locolhost:8000/users')
+            .then()
+            .catch()
     }, [])
 
     return (
@@ -78,7 +78,6 @@ const Signup = () => {
                 </div>
 
                 {/* Right side / Remaining body */}
-
                 <div className='flex-1 min-h-screen max-h-screen overflow-y-scroll h-full flex flex-col items-start justify-start'>
                     {/* Top horizontal bar */}
                     <div className='py-4 px-3 bg-black flex justify-between items-center w-full'>
@@ -92,18 +91,18 @@ const Signup = () => {
 
                         {/* Signing buttons or profile  */}
                         <div className='flex gap-3'>
-                            {/* <Link to={"/signup"} className="text-black bg-green-500 px-4 py-2 rounded-md hover:text-white hover:bg-green-900">
-                Sign Up
-              </Link> */}
-                            <Link to={"/login"} className="text-white bg-gray-600 px-5 py-2 rounded-md hover:bg-slate-500">
-                                Log In
+                            <Link to={"/signup"} className="text-black bg-green-500 px-4 py-2 rounded-md hover:text-white hover:bg-green-900">
+                                Sign Up
                             </Link>
+                            {/* <Link to={"/login"} className="text-white bg-gray-600 px-5 py-2 rounded-md hover:bg-slate-500">
+                                Log In
+                            </Link> */}
                         </div>
                     </div>
 
                     {/* Main body and Feeder */}
                     <div className="w-full bg-black opacity-90">
-                        <SignupContent />
+                        <LoginContent />
                     </div>
 
                     {/* Footer */}

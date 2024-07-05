@@ -1,5 +1,3 @@
-import Signup from '../container/Signup';
-
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 import { FaCodepen } from "react-icons/fa";
@@ -7,17 +5,21 @@ import { BsPencilFill } from "react-icons/bs";
 import { MdViewSidebar } from "react-icons/md";
 import { FaCloud } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
-import 'animate.css';
+// import 'animate.css';
 
 //onclick
 import Holdup from "./Holdup";
+import ClickSettings from './Settings';
 
 const PenHeader = () => {
     // To click save button
     const [isHoldupOpen, setIsHoldupOpen] = useState(false);
 
-    // To Change View
+    // To choose Change View
     const [changeView, setChangeView] = useState(false);
+
+    // To open Settings
+    const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
     return (
         <>
@@ -41,7 +43,7 @@ const PenHeader = () => {
                 <div className="flex gap-2 text-white text-sm">
 
                     {/* Button to Save */}
-                    <Link onClick={() => { setIsHoldupOpen(true) }} className="bg-gray-600 px-5 py-3 rounded-md flex items-center justify-center gap-1">
+                    <Link onClick={() => { setIsHoldupOpen(!isHoldupOpen) }} className="bg-gray-600 px-5 py-3 rounded-md flex items-center justify-center gap-1">
                         <FaCloud />
                         <span>
                             Save
@@ -49,9 +51,11 @@ const PenHeader = () => {
                     </Link>
 
                     {/* Button for settings */}
-                    <Link className="bg-gray-600 px-3 rounded-md flex items-center justify-center gap-1" title='Settings'>
+                    <Link onClick={() => { setIsSettingsOpen(!isSettingsOpen) }} className="bg-gray-600 px-3 rounded-md flex items-center justify-center gap-1" title='Settings'>
                         <IoMdSettings />
-                        <span>Settings</span>
+                        <span>
+                            Settings
+                        </span>
                     </Link>
 
                     {/* Button for Chnage View */}
@@ -65,7 +69,7 @@ const PenHeader = () => {
                     </Link>
 
                     {/* Button for Login */}
-                    <Link className="bg-gray-600 hover:bg-gray-500 px-5 rounded-md flex items-center justify-center">
+                    <Link to={"/login"} className="bg-gray-600 hover:bg-gray-500 px-5 rounded-md flex items-center justify-center">
                         Log In
                     </Link>
 
@@ -76,25 +80,29 @@ const PenHeader = () => {
             <Holdup isOpen={isHoldupOpen} onClose={() => { setIsHoldupOpen(false) }} />
 
             {/* After clicking "Settings" */}
+            <ClickSettings isOpen={isSettingsOpen} onClose={() => { setIsSettingsOpen(false) }} />
 
             {/* After clicking "Change View" */}
-            {changeView && <div className='fixed top-14 right-48 z-50 border-2 border-black bg-gray-600 rounded-xl h-fill w-64'>
-                <div className='flex flex-col px-2'>
-                    <p className='text-lg text-white font-bold py-3'>Change View</p>
-                    <div className='flex h-10 w-full rounded border-2 border-gray-400 mb-3'>
-                        <div className='hover:bg-gray-300 h-full w-1/3 flex items-center justify-center'>
-                            <MdViewSidebar className="rotate-180 text-2xl text-white" />
-                        </div>
-                        <div className='bg-gray-400 h-full w-1/3 flex items-center justify-center'>
-                            <MdViewSidebar className="-rotate-90 text-2xl text-white" />
-                        </div>
-                        <div className='hover:bg-gray-300 h-full w-1/3 flex items-center justify-center'>
-                            <MdViewSidebar className="text-2xl text-white" />
-                        </div>
+            {
+                changeView &&
+                <div className='fixed top-14 right-48 z-50 border-2 border-black bg-gray-600 rounded-xl h-fill w-64'>
+                    <div className='flex flex-col px-2'>
+                        <p className='text-lg text-white font-bold py-3'>Change View</p>
+                        <div className='flex h-10 w-full rounded border-2 border-gray-400 mb-3'>
+                            <div className='hover:bg-gray-300 h-full w-1/3 flex items-center justify-center'>
+                                <MdViewSidebar className="rotate-180 text-2xl text-white" />
+                            </div>
+                            <div className='bg-gray-400 h-full w-1/3 flex items-center justify-center'>
+                                <MdViewSidebar className="-rotate-90 text-2xl text-white" />
+                            </div>
+                            <div className='hover:bg-gray-300 h-full w-1/3 flex items-center justify-center'>
+                                <MdViewSidebar className="text-2xl text-white" />
+                            </div>
 
+                        </div>
                     </div>
                 </div>
-            </div>}
+            }
 
         </>
     )

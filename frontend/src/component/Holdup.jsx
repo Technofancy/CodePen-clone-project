@@ -16,10 +16,7 @@ const Holdup = ({ isOpen, onClose }) => {
     <>
       <div onClick={onClose} className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-10">
         <div onClick={ (e) => {e.stopPropagation(); }} className="bg-white rounded shadow-lg relative w-5/12 h-full mt-10 border-t-green-500 border-t-[7px]">
-          <button onClick={onClose} className="absolute top-2 right-3 text-gray-400 text-3xl font-bold">
-            <IoClose />
-          </button>
-
+            <IoClose onClick={onClose} className="absolute top-2 right-3 text-gray-400 text-3xl font-bold" />
           <div>
             <div className='flex flex-col items-center px-7 pt-7'>
               <h2 className="text-3xl font-bold mb-2">Hold up!</h2>

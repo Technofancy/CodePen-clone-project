@@ -19,7 +19,7 @@ const Home = () => {
       <div className="w-screen h-screen flex items-start justify-start overflow-hidden">
 
         {/* Sliding vertical side menu bar at left-side */}
-        <div className={`${sideMenu ? "w-2" : "flex-[0.15] xl:flex-[0.15]"} min-h-screen max-h-screen relative bg-slate-900 flex flex-col items-center justify-start gap-4 transition-all duration-300 ease-in-out group`}>
+        <div className={`${sideMenu ? "w-2" : "flex-[0.15] xl:flex-[0.15]"} h-full relative bg-slate-900 flex flex-col items-center justify-start gap-4 transition-all duration-300 ease-in-out group`}>
 
           {/* Slider Link */}
           <div
@@ -94,7 +94,9 @@ const Home = () => {
           </div>
 
           {/* Main body and Feeder */}
-          <div className="h-full w-full"></div>
+          <div className="h-full w-full">
+            {/* code goes here */}
+          </div>
 
           {/* Footer */}
           <Footer />

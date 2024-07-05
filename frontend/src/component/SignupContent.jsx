@@ -144,6 +144,7 @@ const SignupContent = () => {
                 </div>
             </div>
 
+            {/* below forms */}
             <div className="flex text-blue-400 justify-center items-center my-6">
                 <Link className="hover:text-white">
                     Terms of Services
