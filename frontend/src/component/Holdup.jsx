@@ -20,8 +20,8 @@ const Holdup = ({ isOpen, onClose }) => {
           <div>
             <div className='flex flex-col items-center px-7 pt-7'>
               <h2 className="text-3xl font-bold mb-2">Hold up!</h2>
-              <p className='text-slate-500'>You’ll have to Log In or Sign Up (for free!) to save your Pen.</p>
-              <p className='text-slate-500'>Don’t worry! All your work will be saved to your account.</p>
+              <p className='text-slate-500'>You&apos;ll have to Log In or Sign Up (for free!) to save your Pen.</p>
+              <p className='text-slate-500'>Don&apos;t worry! All your work will be saved to your account.</p>
             </div>
             <form className='px-16'>
               <div className='pt-20 mt-5 overflow-y-auto max-h-96'>

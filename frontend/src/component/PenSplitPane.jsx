@@ -1,4 +1,5 @@
 import React from "react";
+import ClickSettings from "./ClickSettings";
 
 // Icons
 import { BsSlashSquareFill } from "react-icons/bs";
@@ -21,6 +22,8 @@ const PenSplitPane = () => {
     const [css, setCss] = r.useState("");
     const [js, setJs] = r.useState("");
     const [output, setOutput] = r.useState("");
+    // To open Settings
+    const [isSettingsOpen, setIsSettingsOpen] = r.useState(false);
 
     r.useEffect(() => {
         updateOutput();
@@ -43,7 +46,8 @@ const PenSplitPane = () => {
 
 
     return (
-        // Horizontal split pane
+        <>
+        {/* Horizontal split pane */}
         <SplitPane split="horizontal" minSize={100} maxSize={-100} defaultSize="66%">
 
             {/* Vertical split pane */}
@@ -66,8 +70,13 @@ const PenSplitPane = () => {
                                     <p className='font-semibold'>HTML</p>
                                 </div>
                                 <div className='bg-black text-white text-xs flex items-center justify-end w-full gap-1 px-3'>
-                                    <div className='bg-gray-600 rounded-sm px-2 py-1'><IoMdSettings /></div>
-                                    <div className='bg-gray-600 rounded-sm px-2 py-1'><FaChevronDown /></div>
+                                    <button
+                                        onClick={() => { setIsSettingsOpen(!isSettingsOpen) }} className='bg-gray-600 rounded-sm px-2 py-1'>
+                                        <IoMdSettings />
+                                    </button>
+                                    <button className='bg-gray-600 rounded-sm px-2 py-1'>
+                                        <FaChevronDown />
+                                    </button>
                                 </div>
                             </div>
 
@@ -91,8 +100,12 @@ const PenSplitPane = () => {
                                         <p className='font-semibold'>CSS</p>
                                     </div>
                                     <div className='bg-black text-white text-xs flex items-center justify-end w-full gap-1 px-3'>
-                                        <div className='bg-gray-600 rounded-sm px-2 py-1'><IoMdSettings /></div>
-                                        <div className='bg-gray-600 rounded-sm px-2 py-1'><FaChevronDown /></div>
+                                        <button onClick={ () => {setIsSettingsOpen(!isSettingsOpen)}} className='bg-gray-600 rounded-sm px-2 py-1'>
+                                            <IoMdSettings />
+                                        </button>
+                                        <button className='bg-gray-600 rounded-sm px-2 py-1'>
+                                            <FaChevronDown />
+                                        </button>
                                     </div>
                                 </div>
 
@@ -115,8 +128,12 @@ const PenSplitPane = () => {
                                         <p className='font-semibold'>JS</p>
                                     </div>
                                     <div className='bg-black text-white text-xs flex items-center justify-end w-full gap-1 px-3'>
-                                        <div className='bg-gray-600 rounded-sm px-2 py-1'><IoMdSettings /></div>
-                                        <div className='bg-gray-600 rounded-sm px-2 py-1'><FaChevronDown /></div>
+                                        <button onClick={ () => {setIsSettingsOpen(!isSettingsOpen)}} className='bg-gray-600 rounded-sm px-2 py-1'>
+                                            <IoMdSettings />
+                                        </button>
+                                        <button className='bg-gray-600 rounded-sm px-2 py-1'>
+                                            <FaChevronDown />
+                                        </button>
                                     </div>
                                 </div>
 
@@ -147,8 +164,9 @@ const PenSplitPane = () => {
             />
 
         </SplitPane>
-
-
+{/* After clicking "Settings" icons */}
+<ClickSettings isOpen={isSettingsOpen} onClose={() => { setIsSettingsOpen(false) }} />
+</>
     )
 }
 

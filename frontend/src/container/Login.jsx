@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const Signup = () => {
+const Login = () => {
 
     const [sideMenu, setSideMenu] = useState(false);
 
@@ -114,4 +114,4 @@ const Signup = () => {
     )
 }
 
-export default Signup;
+export default Login;

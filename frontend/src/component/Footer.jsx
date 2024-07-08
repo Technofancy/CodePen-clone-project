@@ -58,7 +58,7 @@ const Footer = () => {
                             </Link>
                             <div className="flex flex-col gap-1 justify-end text-end text-xs text-gray-500">
                                 <p>C2024 CodePen</p>
-                                <p>Demo or it didn't happen.</p>
+                                <p>Demo or it didn&apos;t happen.</p>
                                 <div className="flex -mt-2.5 items-center">
                                     <Link className="hover:text-white">
                                         Terms of Services

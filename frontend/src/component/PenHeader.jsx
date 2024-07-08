@@ -9,7 +9,7 @@ import { IoMdSettings } from "react-icons/io";
 
 //onclick
 import Holdup from "./Holdup";
-import ClickSettings from './Settings';
+import ClickSettings from './ClickSettings';
 
 const PenHeader = () => {
     // To click save button
