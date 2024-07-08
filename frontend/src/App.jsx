@@ -7,7 +7,6 @@ import Signup from "./container/Signup";
 import Login from "./container/Login";
 
 function App() {
-  const [data, setData] = useState(null);
 
   useEffect(() => {
     // Fetch data from the backend
