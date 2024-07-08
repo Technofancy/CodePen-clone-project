@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./container/Home";
 import Pen from "./container/Pen";
@@ -5,7 +7,18 @@ import Signup from "./container/Signup";
 import Login from "./container/Login";
 
 function App() {
+  const [data, setData] = useState(null);
 
+  useEffect(() => {
+    // Fetch data from the backend
+    axios.get('/api/data')
+      .then(response => {
+        setData(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
   return (
     <>
     <Routes>
